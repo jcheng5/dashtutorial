@@ -1,0 +1,31 @@
+---
+title: "Row layout"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: rows
+---
+    
+Row
+-------------------------------------
+    
+### Table
+    
+```{r}
+knitr::kable(pressure)
+```
+   
+Row
+-------------------------------------
+   
+### Chart 1
+
+```{r}
+plot(pressure)
+
+```   
+ 
+### Chart 2
+    
+```{r}
+hist(pressure$pressure)
+```

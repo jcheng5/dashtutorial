@@ -1,0 +1,29 @@
+---
+title: "Column layout"
+output: flexdashboard::flex_dashboard
+---
+    
+Column {data-width=4}
+-------------------------------------
+    
+### Table
+    
+```{r}
+knitr::kable(pressure)
+```
+   
+Column {data-width=6}
+-------------------------------------
+   
+### Chart 1
+
+```{r}
+plot(pressure)
+
+```   
+ 
+### Chart 2
+    
+```{r}
+hist(pressure$pressure)
+```

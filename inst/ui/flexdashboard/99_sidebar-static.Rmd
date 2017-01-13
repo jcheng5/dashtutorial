@@ -1,0 +1,55 @@
+---
+title: "Sidebar layout"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: columns
+---
+
+```{r}
+library(crosstalk)
+
+# devtools::install_github("jcheng5/d3scatter")
+library(d3scatter)
+
+# This requires a development version of DT:
+# devtools::install_github("rstudio/DT")
+library(DT)
+```
+
+Inputs {.sidebar}
+-------------------------------------
+
+```{r}
+shared_mtcars <- SharedData$new(mtcars)
+filter_checkbox("cyl", "Cylinders", shared_mtcars, ~cyl, inline = TRUE)
+filter_slider("hp", "Horsepower", shared_mtcars, ~hp, width = "100%")
+```
+
+Column
+-------------------------------------
+
+### Chart 1 {data-height=10}
+
+```{r}
+d3scatter(shared_mtcars, ~wt, ~hp, ~factor(cyl), width="100%")
+```   
+
+ 
+### Chart 2 {data-height=50}
+    
+```{r}
+d3scatter(shared_mtcars, ~wt, ~mpg, ~factor(cyl), width="100%")
+```
+
+Column
+-------------------------------------
+
+### Table
+    
+```{r}
+# Requires github version of DT
+# github::install_github("rstudio/DT")
+datatable(shared_mtcars, extensions="Scroller", style="bootstrap", 
+  class="compact",
+  options=list(deferRender=TRUE, scrollY=300, scroller=TRUE))
+```

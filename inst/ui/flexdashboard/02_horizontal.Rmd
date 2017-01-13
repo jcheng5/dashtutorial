@@ -1,0 +1,22 @@
+---
+title: “Horizontal layout"
+output: flexdashboard::flex_dashboard
+---
+
+Column 1
+-----------------
+
+### Chart
+    
+```{r}
+plot(pressure)
+```
+
+Column 2
+-----------------
+    
+### Table
+
+```{r}
+knitr::kable(pressure)
+```

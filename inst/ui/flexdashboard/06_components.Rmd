@@ -1,0 +1,39 @@
+---
+title: "Components"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: rows
+---
+
+```{r}
+library(flexdashboard)
+```
+
+Row
+-------------------------------------
+
+### Flights
+
+```{r}
+flights <- 23
+
+valueBox(flights, icon = "fa-plane")
+```
+
+### Deliveries
+
+```{r}
+deliveries <- 410
+
+valueBox(deliveries, color = "warning", icon = "fa-shopping-cart")
+```
+
+### Rate
+
+```{r}
+rate <- 85
+
+gauge(rate, min = 0, max = 100, symbol = '%',
+  gaugeSectors(success = c(80, 100), warning = c(40, 79), danger = c(0, 39))
+)
+```

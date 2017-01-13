@@ -1,0 +1,32 @@
+---
+title: "Scrolling layout"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: scroll
+---
+
+Column
+-------------------------------------
+
+### Table
+    
+```{r}
+knitr::kable(cars)
+```
+
+Column
+-------------------------------------
+
+### Chart 1 {data-height=10}
+
+```{r}
+plot(cars)
+```   
+
+ 
+### Chart 2 {data-height=50}
+    
+```{r}
+hist(cars$dist)
+```

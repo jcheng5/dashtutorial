@@ -1,0 +1,68 @@
+---
+title: "flexdashboard + shiny_prerendered"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    source_code: embed
+runtime: shiny_prerendered
+---
+
+```{r context="setup", include=FALSE}
+library(shiny)
+library(ggplot2)
+```
+
+Inputs {.sidebar}
+-----------------------------------------------------------------------
+
+```{r context="render"}
+checkboxGroupInput("cyl", "Cylinders", choices = c("4", "6", "8"),
+  selected = c("4", "6", "8"), inline = TRUE
+)
+
+sliderInput("hp", "Horsepower",
+  min = min(mtcars$hp), max = max(mtcars$hp),
+  value = range(mtcars$hp)
+)
+```
+
+Outputs
+-----------------------------------------------------------------------
+
+### Scatterplot of weight and miles per gallon
+
+```{r context="server"}
+mpg_subset <- reactive({
+  mtcars[mtcars$hp >= input$hp[1] &
+         mtcars$hp <= input$hp[2] &
+         mtcars$cyl %in% input$cyl, ]
+})
+
+output$scatter <- renderPlot({
+  ggplot(mpg_subset(), aes(x=wt, y=mpg, color=factor(cyl))) +
+    geom_point() +
+    coord_cartesian(xlim = range(mtcars$wt), ylim = range(mtcars$mpg))
+})
+```
+
+```{r context="render"}
+plotOutput("scatter")
+```
+
+### Histogram of weight
+
+```{r context="server"}
+output$hist <- renderPlot({
+  ggplot(mpg_subset(), aes(x=wt)) +
+    geom_histogram(binwidth = 0.25, boundary = 0) +
+    coord_cartesian(
+      xlim = c(floor(mtcars$wt), ceiling(mtcars$wt)),
+      ylim = c(0, 6)
+    )
+})
+```
+
+```{r context="render"}
+plotOutput("hist")
+```
+

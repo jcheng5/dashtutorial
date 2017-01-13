@@ -1,0 +1,16 @@
+---
+title: “Vertical layout"
+output: flexdashboard::flex_dashboard
+---
+    
+### Chart
+    
+```{r}
+plot(pressure)
+```
+    
+### Table
+
+```{r}
+knitr::kable(pressure)
+```
