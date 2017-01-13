@@ -3,6 +3,12 @@ summon <- function(dest_path = getwd(), overwrite = FALSE) {
   message("Copying tutorial files to ", dest)
   dir.create(dest, recursive = TRUE)
   file.copy(
+    system.file("demos", package = "dashtutorial"),
+    dest,
+    recursive = TRUE,
+    overwrite = overwrite
+  )
+  file.copy(
     system.file("exercises", package = "dashtutorial"),
     dest,
     recursive = TRUE,

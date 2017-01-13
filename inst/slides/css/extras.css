@@ -1,0 +1,49 @@
+.smaller h3 {
+  font-size: 28px;
+  margin-bottom: 0em;
+}
+
+.smaller p {
+  margin-top: 0.5em;
+}
+
+table.tabular {
+  border: 1px solid #DDDDDD;
+  border-collapse: collapse;
+}
+
+table.tabular td, table.tabular th {
+  border: 1px solid #DDDDDD;
+  padding: 8px;
+  text-align: left;
+}
+
+textarea#source {
+  display: none;
+}
+
+footer {
+  position: fixed;
+  bottom: 12px;
+  left: 20px;
+  opacity: 0.5;
+}
+footer a, footer a:active {
+  color: black;
+  text-decoration: underline;
+}
+
+.countdown-timer .countdown-timer-time {
+  font-family: Source Sans Pro;
+  font-size: 50pt;
+}
+.countdown-timer button {
+  border: 0.25px solid #CCC;
+  background-color: white;
+  outline: none;
+}
+.countdown-timer button:active {
+  border: 1px solid #CCC;
+  background-color: silver;
+  color: white;
+}
