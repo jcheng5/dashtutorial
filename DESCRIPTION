@@ -1,11 +1,9 @@
 Package: dashtutorial
 Type: Package
-Title: Metapackage for rstudio::conf 2017 Shiny Dashboards tutorial
+Title: Exercises, slides for rstudio::conf 2017 Shiny Dashboards tutorial
 Version: 1.0.0
 Author: RStudio, Inc.
 Maintainer: Joe Cheng <joe@rstudio.com>
-Description: This package contains no code or data, only dependencies.
-    Once successfully installed, you can delete it.
 Encoding: UTF-8
 LazyData: true
 Imports: shinydashboard, flexdashboard, dplyr, xml2, httr

@@ -1,13 +1,15 @@
-## Shiny Dashboard Tutorial dependencies
+## Shiny Dashboard Tutorial
 
-This is a meta-package to make it easy to install all the dependencies you'll need for the Shiny Dashboard tutorial.
+This package makes it easy to install all the dependencies you'll need for the Shiny Dashboard tutorial. It also contains all exercises and slides.
 
 ```r
 devtools::install_github("jcheng5/dashtutorial")
 ```
 
-Once successfully installed, feel free to remove it:
+Once successfully installed, you can copy the slides and exercises to the current directory with:
 
 ```r
-remove.packages("dashtutorial")
+dashtutorial::summon()
 ```
+
+This will create a `dashtutorial` subdirectory in the current directory.
