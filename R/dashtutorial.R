@@ -14,5 +14,11 @@ summon <- function(dest_path = getwd(), overwrite = FALSE) {
     recursive = TRUE,
     overwrite = overwrite
   )
+  file.copy(
+    system.file("dashtutorial.Rproj", package = "dashtutorial"),
+    dest,
+    recursive = TRUE,
+    overwrite = overwrite
+  )
   invisible()
 }
